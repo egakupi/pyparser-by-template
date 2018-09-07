@@ -23,10 +23,11 @@ unix_1100_engine-e2k-linux_vdb
 
 def parse(path):
     if not isdir(path):
-        print("Path isn\'t corrected")
+        return False
     else:
         only_files = [f for f in listdir(path) if isfile(join(path, f))]
+        unique_names = set()
         for file in only_files:
             file = re.search('(?<=-)[\w-]+(?=-)', file)
-            # TODO return unique list of [name]
-            print(file.group(0))
+            unique_names.add(file.group(0))
+        return unique_names
