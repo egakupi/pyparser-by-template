@@ -28,4 +28,5 @@ def parse(path):
         only_files = [f for f in listdir(path) if isfile(join(path, f))]
         for file in only_files:
             file = re.search('(?<=-)[\w-]+(?=-)', file)
+            # TODO return unique list of [name]
             print(file.group(0))
